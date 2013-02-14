@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 oneToNine = [3, 3, 5, 4, 4, 3, 5, 5, 4] # 1 - 9
 tenToNineteen = [3, 6, 6, 8, 8, 7, 7, 9, 8, 8] # 10 - 19
 twentyToNinety = [6, 6, 5, 5, 5, 7, 6, 6] # 20, 30, 40,..., 90
@@ -29,4 +30,3 @@ for i in range(0, len(oneToNine)):
 	oneHundredTo999 += (oneToNine[i] + hundredAnd) * 99 + oneToNinetyNine
 
 print oneToNinetyNine + oneHundredTo999 + oneThousand
-
