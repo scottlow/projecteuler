@@ -8,6 +8,6 @@ def primeFactors(n):
 			n /= x
 		x += 1
 
-	return factors[-1]
+	return factors
 
-print primeFactors(600851475143)
+print primeFactors(28)
