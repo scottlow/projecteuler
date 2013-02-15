@@ -15,4 +15,3 @@ while sideLen <= 1001:
 print sum
 
 print (time.clock() - t)
-
