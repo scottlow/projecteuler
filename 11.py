@@ -1,4 +1,10 @@
-grid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+def setMaxProduct(product, maxProduct):
+	if product > maxProduct:
+		return product
+	else:
+		return maxProduct
+
+input = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -19,8 +25,39 @@ grid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
 
-lines = grid.split('\n')
+grid = [[int(x) for x in line.strip().split(" ")] for line in input.split("\n")]
 
-for i in range(1, 20):
-	for j in range(1, len(lines)):
-		
+maxProduct = 0
+
+for y in range(0, len(grid)):
+	for x in range(0, len(grid[0])):
+		product = 1
+		if y <= 16:
+			# Compute Bottom
+			for i in range(y, y + 4):
+				product *= grid[i][x]
+			maxProduct = setMaxProduct(product, maxProduct)
+			product = 1
+
+		if x <= 16:
+			# Compute Left
+			for i in range(x, x + 4):
+				product *= grid[y][i]
+			maxProduct = setMaxProduct(product, maxProduct)
+			product = 1
+
+		if y <= 16 and x <= 16:
+			# Compute Diagonal
+			for i in range(4):
+				product *= grid[y + i][x + i]
+			maxProduct = setMaxProduct(product, maxProduct)
+			product = 1	
+
+		if y <= 16 and x >= 3:
+			# Compute Diagonal
+			for i in range(4):
+				product *= grid[y + i][x - i]
+			maxProduct = setMaxProduct(product, maxProduct)
+			product = 1			
+
+print maxProduct
