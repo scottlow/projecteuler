@@ -1,1 +1,1 @@
-This is a repository containing my solutions to project euler questions (Username TheSLExperience)
+This is a repository containing my solutions to Project Euler questions (Username TheSLExperience)
